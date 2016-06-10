@@ -1,6 +1,9 @@
 StructuredForests
 =================
 
+##
+Will add my changes
+
 ## Version 1.1
 
 Updates:
@@ -40,16 +43,16 @@ http://research.microsoft.com/en-us/um/people/larryz/publications.htm
   * Merge trees to build the final model, and save it in "model/forests".
   * Use the trained model to detect edges for the testing data, and save them in "edges".
   * **Note: Currently a model trained on the BSDS500 dataset is provided. If you don't remove it, only the last step of
-    the above will be executed. Just for reference, on my machine the performance on "toy" is \[ODS=0.771, OIS=0.781, 
+    the above will be executed. Just for reference, on my machine the performance on "toy" is \[ODS=0.771, OIS=0.781,
     AP=0.843, R50=0.936\], if this model is used.**
 
 
 * Actual Usage:
     * You can use the provided model for prediction. If you want to train the model by yourself, remove the provided
       model and keep reading.
-    * Download the BSDS500 dataset from http://www.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/, 
+    * Download the BSDS500 dataset from http://www.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/,
       and uncompress it. As a result, a directory named "BSR" is obtained, containing BSDS500, bench, and documentation.
-    * Modify the bottom two lines in "StructuredForests.py" to: 
+    * Modify the bottom two lines in "StructuredForests.py" to:
       `model.train(bsds500_train("BSR"))` and `bsds500_test("BSR", "edges")`. That is, use the "BSR" dataset
       as input, instead of the "toy" dataset.
     * Also modify the model parameters, i.e., "n_pos" and "n_neg" in "StructuredForests.py" to 500,000.
@@ -61,7 +64,7 @@ http://research.microsoft.com/en-us/um/people/larryz/publications.htm
 ### What is missing
 * Multi-scale detection. However, implementing it should only require several lines of codes.
 * Speed. I didn't strive for speed. The current implementation is slower than the author's Matlab
-  version, since only one thread is used, and there is no stochastic optimization like SSE. 
+  version, since only one thread is used, and there is no stochastic optimization like SSE.
   Nonetheless, the speed is acceptable: for BSDS500, detection requires about 1.0s per testing image;
   training requires about 11 hours.
 * Depth images. I never tried the NYU depth dataset.
